@@ -1,0 +1,44 @@
+<!--Contenedor-->
+<mat-drawer-container class="example-container" autosize>
+
+    <!--Sidebar-->
+    <mat-drawer #drawer class="example-sidenav" mode="over" position="start">
+        <p>Auto-resizing sidenav</p>
+        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+        </button>
+    </mat-drawer>
+    <!--Sidebar-->
+
+    <!--Contenido-->
+    <div class="example-sidenav-content">
+        <!--Toolbar-->
+        <mat-toolbar>
+            <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+                aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Inscripcion de Alumnos</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+        </mat-toolbar>
+        <!--Toolbar-->
+
+
+        <!-- <app-icons></app-icons> -->
+        <main style="padding: 1rem;">
+            <!--<app-forms></app-forms> -->
+            <app-users></app-users>
+        </main>
+
+
+    </div>
+    <!--Contenido-->
+
+</mat-drawer-container>

@@ -1,0 +1,31 @@
+<form [formGroup]="userForm">
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field class="w-100">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" matInput>
+                <mat-error>
+                <span *ngIf="nameControl?.hasError ('minlength')">
+                    El campo debe tener al menos 3 caracteres
+                </span>
+                <span *ngIf="nameControl?.hasError ('maxlength')">
+                    El campo debe tener al menos 10 caracteres
+                </span>
+                <span *ngIf="nameControl?.hasError ('required')">
+                    El campo debe tener al menos 10 caracteres
+                </span>
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+        <div class="col-6">
+            <mat-form-field class="w-100">
+                <mat-label>Apellido</mat-label>
+                <input formControlName="lastName" matInput>
+                <mat-error>
+                Campo invalido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+</form>
