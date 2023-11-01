@@ -3,11 +3,11 @@
 
     <!--Sidebar-->
     <mat-drawer #drawer class="example-sidenav" mode="over" position="start">
-        <p>Auto-resizing sidenav</p>
-        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+        <p>HOME</p>
         <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
+            Usuarios
         </button>
+
     </mat-drawer>
     <!--Sidebar-->
 
@@ -35,6 +35,10 @@
         <main style="padding: 1rem;">
             <!--<app-forms></app-forms> -->
             <app-users></app-users>
+            <button (click)="showHome = !showHome" mat-raised-button >Mostrar home</button>
+
+            <app-home *ngIf="showHome"></app-home>
+
         </main>
 
 
