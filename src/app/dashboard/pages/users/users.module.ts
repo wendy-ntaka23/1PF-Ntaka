@@ -6,6 +6,8 @@ import { UserDialogComponent } from './component/user-dialog/user-dialog.compone
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { UsersService } from './users.service';
 import { ApiUrl } from 'src/app/config/url.token';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,11 +15,13 @@ import { ApiUrl } from 'src/app/config/url.token';
   declarations: [
     UsersComponent,
     UserDialogComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    UserDetailComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
   ],
   exports: [
     UsersComponent

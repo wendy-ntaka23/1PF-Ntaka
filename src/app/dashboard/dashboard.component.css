@@ -11,6 +11,7 @@
 
 .example-sidenav {
     padding: 20px;
+
 }
 
 .example-card {
@@ -20,4 +21,10 @@
 .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+}
+.boton{
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 20px;
 }

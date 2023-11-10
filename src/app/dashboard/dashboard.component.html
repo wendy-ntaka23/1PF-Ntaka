@@ -2,14 +2,24 @@
 <mat-drawer-container class="example-container" autosize>
 
     <!--Sidebar-->
-    <mat-drawer #drawer class="example-sidenav" mode="over" position="start">
+    <mat-drawer  #drawer class="example-sidenav" mode="over" position="start">
         <p>HOME</p>
-        <button (click)="showFiller = !showFiller" mat-raised-button>
+        <button   class="boton" routerLink="users" click="showFiller = !showFiller" mat-raised-button>
             Usuarios
         </button>
-
+        <button  routerLink="courses" click="showFiller = !showFiller" mat-raised-button>
+            Cursos
+        </button>
+        <button routerLink="students" class="boton" click="showFiller = !showFiller" mat-raised-button>
+            Alumnos
+        </button>
+        <button routerLink="inscriptions"  click="showFiller = !showFiller" mat-raised-button>
+            Inscripciones
+        </button>
     </mat-drawer>
-    <!--Sidebar-->
+
+
+
 
     <!--Contenido-->
     <div class="example-sidenav-content">
@@ -34,8 +44,9 @@
         <!-- <app-icons></app-icons> -->
         <main style="padding: 1rem;">
             <!--<app-forms></app-forms> -->
-            <app-users></app-users>
-            <button (click)="showHome = !showHome" mat-raised-button >Mostrar home</button>
+            <!--<app-users></app-users> -->
+            <router-outlet></router-outlet>
+            <button (click)="showHome = !showHome" mat-raised-button>Mostrar home</button>
 
             <app-home *ngIf="showHome"></app-home>
 

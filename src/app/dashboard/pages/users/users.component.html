@@ -1,17 +1,17 @@
-<button mat-flat-button color = "primary">
+<h1>Usuarios</h1>
+<button  mat-flat-button color = "primary">
     <mat-icon>add</mat-icon>
     Crear Usuario
 </button>
 
 <!--{{ testUser | fullname }} -->
 
-<app-users-table 
+<app-users-table
 [dataSource]="(users | async) || []"
-></app-users-table>
+>
+</app-users-table>
 
-<!--
-    //(editUser)="onEditUser ($event)" 
-//(deleteUser)="onDeleteUser($event)">
-(click)="openUsersDialog()"
 
--->
+<!--(editUser)="onEditUser ($event)" 
+(deleteUser)="onDeleteUser($event)">
+(click)="openUsersDialog()" -->

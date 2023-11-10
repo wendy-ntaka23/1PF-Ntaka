@@ -10,7 +10,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { UsersModule } from './pages/users/users.module';
 import { HomeModule } from './pages/home/home.module';
-
+import { RouterModule } from '@angular/router';
+import { CoursesModule } from './pages/courses/courses.module';
+import { StudentsModule } from './pages/students/students.module';
+import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
 
 
 
@@ -27,6 +30,11 @@ import { HomeModule } from './pages/home/home.module';
     MatIconModule,
     UsersModule,
     HomeModule,
+    RouterModule,
+    CoursesModule,
+    StudentsModule,
+    InscriptionsModule,
+  
   ],
   exports: [DashboardComponent],
 })

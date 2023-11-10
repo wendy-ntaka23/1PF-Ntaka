@@ -1,0 +1,11 @@
+<h1> Lista de Alumnos </h1>
+
+<div class="flex justify-content-end">
+    <button (click)="addStudent()" mat-flat-button color="primary"> Agregar Alumno</button>
+</div>
+
+<app-students-table 
+[dataSource]="(students$ | async) || []"
+(deleteStudent)="onDeleteStudent($event)"
+(editStudent)="onEditStudent($event)"
+></app-students-table>
