@@ -5,4 +5,6 @@ export interface User {
     curso: string;
     clase: string;
     email: string ;
+    token: string;
+    role: string;
 }

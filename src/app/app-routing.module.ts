@@ -8,6 +8,7 @@ import { UserDetailComponent } from './dashboard/pages/users/components/user-det
 import { CoursesComponent } from './dashboard/pages/courses/courses.component';
 import { StudentsComponent } from './dashboard/pages/students/students.component';
 import { InscriptionsComponent } from './dashboard/pages/inscriptions/inscriptions.component';
+import { dashboardGuard } from './core/guards/dashboard.guard';
 
 
 
@@ -15,42 +16,17 @@ import { InscriptionsComponent } from './dashboard/pages/inscriptions/inscriptio
 const routes: Routes = [
     {
         path: 'dashboard',
-        component: DashboardComponent,
-        children: [
-            {
-                path: 'home',
-                component: HomeComponent,
-            },
-            {
-                path: 'users',
-                component: UsersComponent,
-            
-            },
-            {
-                path : 'users/detail/:id',
-                component: UserDetailComponent
-            },
-            {
-                path: 'courses',
-                component: CoursesComponent,
-            },
-            {
-                path: 'students',
-                component: StudentsComponent,
-            },
-            {
-                path: 'inscriptions',
-                component: InscriptionsComponent,
-            },
-            {
-                path: '**',
-                redirectTo: 'users',
-            },
-        ],
+        canActivate:[dashboardGuard],
+        loadChildren: () =>
+        import ('./dashboard/dashboard.module').then((m) => m.DashboardModule),
     },
     {
-        path: 'auth',
-        component: AuthComponent,
+        path:'auth',
+        loadChildren:()=> import ('./auth/auth.module').then((m) => m.AuthModule),
+    },
+    {
+        path:'**',
+        redirectTo:'auth',
     },
 ];
 

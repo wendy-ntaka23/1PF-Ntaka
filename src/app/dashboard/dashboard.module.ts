@@ -14,6 +14,8 @@ import { RouterModule } from '@angular/router';
 import { CoursesModule } from './pages/courses/courses.module';
 import { StudentsModule } from './pages/students/students.module';
 import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
+import { AuthModule } from '../auth/auth.module';
 
 
 
@@ -28,12 +30,9 @@ import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
     FormsPageModule,
     MatToolbarModule,
     MatIconModule,
-    UsersModule,
     HomeModule,
-    RouterModule,
-    CoursesModule,
-    StudentsModule,
-    InscriptionsModule,
+    DashboardRoutingModule,
+
   
   ],
   exports: [DashboardComponent],

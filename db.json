@@ -1,0 +1,12 @@
+{
+  "users":[ {
+      "name": "Wendy",
+      "lastName": "Ntaka",
+      "email": "wendysgrow23@gmail.com",
+      "password": "123456",
+      "token": "thehtetfe2525rgwr",
+      "role": "ADMIN",
+      "id": 1 
+  }],
+  "courses":[]
+}
