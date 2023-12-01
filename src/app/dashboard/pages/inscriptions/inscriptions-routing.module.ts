@@ -6,7 +6,8 @@ import { InscriptionsComponent } from './inscriptions.component';
 
 
 @NgModule({
-    imports: [RouterModule.forChild([
+    imports: [
+        RouterModule.forChild([
         {
             
                 path: '',

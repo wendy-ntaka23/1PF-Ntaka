@@ -8,14 +8,9 @@ import { IconsModule } from './pages/icons/icons.module';
 import { FormsModule as FormsPageModule } from './pages/forms/forms.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { UsersModule } from './pages/users/users.module';
 import { HomeModule } from './pages/home/home.module';
-import { RouterModule } from '@angular/router';
-import { CoursesModule } from './pages/courses/courses.module';
-import { StudentsModule } from './pages/students/students.module';
-import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { AuthModule } from '../auth/auth.module';
+
 
 
 
@@ -32,6 +27,7 @@ import { AuthModule } from '../auth/auth.module';
     MatIconModule,
     HomeModule,
     DashboardRoutingModule,
+
 
   
   ],

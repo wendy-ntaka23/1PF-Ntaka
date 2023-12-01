@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { CourseService } from './courses.service';
 import { Observable } from 'rxjs';
 import { Course } from './models';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursesDialogComponent } from './components/courses-dialog/courses-dialog.component';
+import { CourseService } from './courses.service';
 
 
 @Component({
@@ -28,8 +28,8 @@ export class CoursesComponent {
             this.courses$ = this.coursesService.createCourse$({
               id: new Date (). getTime(),
               name: result.name,
-              starDate: new Date (),
-              endDate : new Date (),
+              startDate: result.endDate,
+              endDate : result.startDate,
             });
           }
         },
@@ -37,7 +37,7 @@ export class CoursesComponent {
     }
 
     onDeleteCourse(courseId: number ): void {
-      this.courses$ = this.coursesService.deleteCourse$(courseId);
+      this.courses$ = this.coursesService.deleteCourses$(courseId);
     }
 
     onEditCourse(courseId: number ): void {

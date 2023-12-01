@@ -3,7 +3,9 @@ import { User } from './models';
 import { inject } from '@angular/core/testing';
 import { ApiUrl } from 'src/app/config/url.token';
 import { ApiUrlConfig } from 'src/app/config/url.token';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, concat, concatMap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environments.local';
 
 @Injectable({
   providedIn: 'root'
@@ -11,21 +13,19 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class UsersService {
 
   constructor(
-    @Inject(ApiUrl)
-    private url: ApiUrlConfig
-  ) {
-    console.log('LA URL INYECTADA ES : ', url)
+
+    private httpClient: HttpClient) { }
+
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${environment.baseUrl}/users`);
   }
 
-  private users: User[] = [];
-    
-  private users$ = new BehaviorSubject<User[]>([]);
- 
-  loadUsers(): void {
-    this.users$.next(this.users)
-  }
-  getUsers() {
-    return this.users$
+  createUser(payload: User): Observable<User[]> {
+    return this.httpClient.post<User>(`${environment.baseUrl}/users`, payload).pipe(concatMap(() => this.getUsers()));
   }
 
+  updateUser(userId: number, payload: User): Observable<User[]> {
+    return this.httpClient.put<User>(`${environment.baseUrl}/users/${userId}`, payload).pipe(concatMap(() => this.getUsers())
+    );
+  }
 }

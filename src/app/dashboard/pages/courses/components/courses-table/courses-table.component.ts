@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '../../models';
-import { RouterModule } from '@angular/router';
+
 
 
 
@@ -20,6 +20,6 @@ export class CoursesTableComponent {
   @Output()
   deleteCourse = new EventEmitter();
 
-  displayedColumns = ['id','name','starDate','endDate','actions'];
+  displayedColumns = ['id','name','startDate','endDate','actions'];
 
 }

@@ -6,5 +6,7 @@
     </button>
 </div>
 
-<app-courses-table [dataSource]="(courses$ | async) || []" (deleteCourse)="onDeleteCourse($event)"
-    (editCourse)="onEditCourse($event)"></app-courses-table>
+<app-courses-table 
+[dataSource]="(courses$ | async) || []" 
+(deleteCourse)="onDeleteCourse($event)"
+(editCourse)="onEditCourse($event)"></app-courses-table>

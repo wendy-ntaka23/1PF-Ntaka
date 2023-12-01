@@ -14,76 +14,65 @@ import { Observable, of, map } from 'rxjs';
 export class UsersComponent {
   userName = '';
 
-  users: Observable<User[]>;
 
+  users$: Observable<User[]>;
   constructor(
     private matDialog: MatDialog,
     private usersService: UsersService,
 
   ) {
+    this.users$ = this.usersService.getUsers();
 
-
-    of('Wendy Ntaka', 'Rocio Sanchez', 'Lucia Lopez', 'Gonzalo Santacaterina', 'Zoe De Abreu', 'Leon Ali')
-      .pipe(map((valor) => console.log('Alumnos', valor))
-      )
-      .subscribe({
-        next: (v) =>
-          console.log(v)
-      })
-
-
-    this.users = this.usersService.getUsers()
-    this.usersService.loadUsers()
-    //this.usersService.getUsers().subscribe({
-    //next: (v) => {
-    //this.users = v
   }
-// });
-//}
 
-// openUsersDialog(): void {
-// this.matDialog.open(UserDialogComponent)
-//  .afterClosed()
-//  .subscribe({
-//    next: (v) => {
-//      console.log('VALOR:', v);
+  addUser(): void {
+    this.matDialog.open(UserDialogComponent)
+      .afterClosed()
+      .subscribe({
+        next: (v) => {
+          if (!!v) {
+            this.users$ = this.usersService.createUser(v);
+            this.usersService.createUser(v).subscribe({
+              next : () => {
+
+              },
+            });
+            
+            
+
+            //  this.users = [
+            //   ...this.users,
+            //   {
+            //     ...v,
+            //     id: new Date().getTime(),
+            //   }
+            //  ]
+          }
+        },
+      });
+  }
+  onEditUser(user: User): void {
+    this.matDialog.open(UserDialogComponent, {
+      data: user
+    }).afterClosed().subscribe({
+      next: (v) => {
+        if (!!v) {
+        this.users$ =  this.usersService.updateUser(user.id, v)
+         // const arrayNuevo = [...this.users];
+
+         // const indiceToEdit = arrayNuevo.findIndex((u) => u.id === user.id);
+
+        //  arrayNuevo[indiceToEdit] = { ...arrayNuevo[indiceToEdit], ...v };
+        //  this.users = [...arrayNuevo];
+        }
+      },
+    });
+  }
 
 
-//     if (!!v) {
-
-//      this.users = [
-//        ...this.users,
-//       {
-//          ...v,
-//          id: new Date().getTime(),
-//        }
-//       ]
-//     }
-//    },
-//  });
-//}
-//onEditUser(user: User): void {
-// this.matDialog.open(UserDialogComponent, {
-//  data: user
-// }).afterClosed().subscribe({
-// next: (v) => {
-// if (!!v) {
-// const arrayNuevo = [...this.users];
-
-//  const indiceToEdit = arrayNuevo.findIndex((u) => u.id === user.id);
-
-//  arrayNuevo[indiceToEdit] = { ...arrayNuevo[indiceToEdit], ...v };
-
-//  this.users = [...arrayNuevo];
-// }
-// },
-// });
-// }
-
-
-// onDeleteUser(userId: number): void {
-//  if (confirm('Estas seguro?')) {
-//    this.users = this.users.filter((u) => u.id !== userId);
-//  }
-//}
+  onDeleteUser(userId: number): void {
+    if (confirm('Estas seguro?')) {
+     // this.users = this.users.filter((u) => u.id !== userId);
+    }
+  }
 }

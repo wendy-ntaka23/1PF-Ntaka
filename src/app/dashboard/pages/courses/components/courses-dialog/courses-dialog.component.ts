@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CourseService } from '../../courses.service';
 
 
+
+
 @Component({
   selector: 'app-courses-dialog',
   templateUrl: './courses-dialog.component.html',
@@ -12,12 +14,12 @@ import { CourseService } from '../../courses.service';
 export class CoursesDialogComponent {
 
   nameControl = new FormControl();
-  starDateControl = new FormControl();
+  startDateControl = new FormControl();
   endDateControl = new FormControl();
 
   courseForm = new FormGroup({
     name: this.nameControl,
-    startDate: this.starDateControl,
+    startDate: this.startDateControl,
     endDate: this.endDateControl,
   });
 

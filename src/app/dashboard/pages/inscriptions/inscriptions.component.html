@@ -1,2 +1,15 @@
-<h1> Bienvenido </h1>
+<h1> Inscripciones 2024 </h1>
+<div class="d-flex justify-content-end">
+    <button (click)="addInscription()" mat-flat-button color="primary">
+        Me quiero inscribir
+    </button>
+</div>
+
+
+
+<app-inscriptions-table
+[dataSource]="(inscriptions$ | async) || []"
+(deleteInscription)="onDeleteInscription($event)"
+(editInscription)="onEditInscription($event)"
+></app-inscriptions-table>
 

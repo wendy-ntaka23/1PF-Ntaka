@@ -9,37 +9,37 @@ export class CourseService {
         {
             id: 1,
             name: 'Diseño Grafico',
-            starDate: new Date(),
+            startDate: new Date(),
             endDate: new Date(),
         },
         {
             id: 2,
             name: 'HTML',
-            starDate: new Date(),
+            startDate: new Date(),
             endDate: new Date(),
         },
         {
             id: 3,
             name: 'Desarrollo Web',
-            starDate: new Date(),
+            startDate: new Date(),
             endDate: new Date(),
         },
         {
             id: 4,
             name: 'Full Stack',
-            starDate: new Date(),
+            startDate: new Date(),
             endDate: new Date(),
         },
         {
             id: 5,
             name: 'CSS',
-            starDate: new Date(),
+            startDate: new Date(),
             endDate: new Date(),
         },
         {
             id: 6,
             name: 'JavaScript',
-            starDate: new Date(),
+            startDate: new Date(),
             endDate: new Date(),
         },
     ];
@@ -58,12 +58,11 @@ export class CourseService {
         return of (this.courses.map((c) => (c.id === id ?  {...c,...payload} : c))
         );
 }
-    deleteCourse$(id: number): Observable<Course[]>{
-        this.courses = this.courses.filter ((c) => c.id !== id);
-        return of (this.courses);
-    }
-
-    getCourseById$ (id: number): Observable < Course | undefined>{
-        return of (this.courses.find ((c) => c.id === id));
-    }
+    deleteCourses$(id: number): Observable<Course[]>{
+    this.courses = this.courses.filter ((c) => c.id !== id);
+    return of (this.courses);
+}
+getCourseById$ (id: number): Observable < Course | undefined>{
+    return of (this.courses.find ((c) => c.id === id));
+}
 }

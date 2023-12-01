@@ -13,7 +13,10 @@
         <div class="col-6">
             <mat-form-field class="w-100">
                 <mat-label>Fecha de inicio</mat-label>
-                <input   matInput />
+                <input [formControl]="startDateControl" matInput [matDatepicker]="startDatePicker"/>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatePicker></mat-datepicker>
             </mat-form-field>
         </div>
     
@@ -21,7 +24,10 @@
         <div class="col-6">
             <mat-form-field class="w-100">
                 <mat-label>Fecha finalizacion</mat-label>
-                <input matInput/>
+                <input [formControl]="endDateControl" matInput [matDatepicker]="endDatePicker"/>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #endDatePicker></mat-datepicker>
             </mat-form-field>
         </div>
     
