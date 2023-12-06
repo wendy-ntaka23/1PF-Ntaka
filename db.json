@@ -65,6 +65,15 @@
       "password": "1234567",
       "token": "wfrewfewf",
       "role": "ADMIN"
+    },
+    {
+      "id": 7,
+      "name": "lara",
+      "lastName": "perez",
+      "email": "perez_lara3@gmail.com",
+      "password": "123456",
+      "token": "fljskifjei",
+      "role": "EMPLOYEE"
     }
   ],
   "courses": [
@@ -146,17 +155,20 @@
   "inscriptions": [
     {
       "id": 1,
-      "name": "Jose Luis Campos",
+      "userId": 1,
+      "coursesId": 3,
       "dateBirth": "29/11/2023"
     },
     {
       "id": 2,
-      "name": "Carla Suarez",
+      "userId": 2,
+      "coursesId": 2,
       "dateBirth": "29/11/2023"
     },
     {
       "id": 3,
-      "name": "Pablo Echeverria",
+      "userId": 3,
+      "coursesId":1,
       "dateBirth": "29/11/2023"
     }
   ]

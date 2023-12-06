@@ -28,4 +28,10 @@ export class UsersService {
     return this.httpClient.put<User>(`${environment.baseUrl}/users/${userId}`, payload).pipe(concatMap(() => this.getUsers())
     );
   }
+
+  deleteUser(id:number) : Observable<User[]> {
+    return this.httpClient.delete<Object>(`${environment.baseUrl}/users/${id}`).pipe(concatMap(() => this.getUsers())
+      );
+    }
+
 }

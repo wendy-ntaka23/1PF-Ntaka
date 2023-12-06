@@ -33,12 +33,12 @@ export class UsersComponent {
           if (!!v) {
             this.users$ = this.usersService.createUser(v);
             this.usersService.createUser(v).subscribe({
-              next : () => {
+              next: () => {
 
-              },
+              }
             });
-            
-            
+
+
 
             //  this.users = [
             //   ...this.users,
@@ -57,13 +57,13 @@ export class UsersComponent {
     }).afterClosed().subscribe({
       next: (v) => {
         if (!!v) {
-        this.users$ =  this.usersService.updateUser(user.id, v)
-         // const arrayNuevo = [...this.users];
+          this.users$ = this.usersService.updateUser(user.id, v)
+          // const arrayNuevo = [...this.users];
 
-         // const indiceToEdit = arrayNuevo.findIndex((u) => u.id === user.id);
+          // const indiceToEdit = arrayNuevo.findIndex((u) => u.id === user.id);
 
-        //  arrayNuevo[indiceToEdit] = { ...arrayNuevo[indiceToEdit], ...v };
-        //  this.users = [...arrayNuevo];
+          //  arrayNuevo[indiceToEdit] = { ...arrayNuevo[indiceToEdit], ...v };
+          //  this.users = [...arrayNuevo];
         }
       },
     });
@@ -72,7 +72,8 @@ export class UsersComponent {
 
   onDeleteUser(userId: number): void {
     if (confirm('Estas seguro?')) {
-     // this.users = this.users.filter((u) => u.id !== userId);
+      this.users$ = this.usersService.deleteUser(userId);
+      // this.users = this.users.filter((u) => u.id !== userId);
     }
   }
 }

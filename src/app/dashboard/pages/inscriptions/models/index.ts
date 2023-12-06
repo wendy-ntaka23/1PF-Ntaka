@@ -1,5 +1,11 @@
+import { Course } from "../../courses/models";
+import { User } from "../../users/models";
+
 export interface inscription{
     id: number;
-    name: string,
-    dateBirth: Date,
+    userId: number;
+    courseId: number;
+    dateBirth: Date;
+    user?: User;
+    course?: Course;
 }

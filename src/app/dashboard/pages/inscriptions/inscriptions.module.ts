@@ -5,6 +5,10 @@ import { InscriptionsTableComponent } from './components/inscriptions-table/insc
 import { SharedModule } from 'src/app/shared/shared.module';
 import { InscriptionsRoutingModule } from './inscriptions-routing.module';
 import { InscriptionsDialogComponent } from './components/inscriptions/dialog/inscriptions-dialog.component';
+import { EffectsModule } from '@ngrx/effects';
+import { InscriptionEffects } from './store/inscription.effects';
+import { StoreModule } from '@ngrx/store';
+import { inscriptionFeature } from './store/inscription.reducer';
 
 
 
@@ -18,7 +22,9 @@ import { InscriptionsDialogComponent } from './components/inscriptions/dialog/in
   imports: [
     CommonModule,
     SharedModule,
-    InscriptionsRoutingModule
-  ]
+    InscriptionsRoutingModule,
+    StoreModule.forFeature(inscriptionFeature),
+    EffectsModule.forFeature([InscriptionEffects]),
+  ],
 })
 export class InscriptionsModule { }

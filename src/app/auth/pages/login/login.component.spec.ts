@@ -2,6 +2,7 @@ import { TestBed } from "@angular/core/testing";
 import { LoginComponent } from "./login.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { SharedModule } from "src/app/shared/shared.module";
+import { StoreModule } from "@ngrx/store";
 
 describe('LoginComponent', () => {
     let loginComponent: LoginComponent;
@@ -9,7 +10,7 @@ describe('LoginComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [LoginComponent],
-            imports: [HttpClientTestingModule, SharedModule],
+            imports: [HttpClientTestingModule, SharedModule, StoreModule],
         });
         loginComponent = TestBed.createComponent(LoginComponent).componentInstance;
 

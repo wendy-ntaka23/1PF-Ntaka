@@ -45,11 +45,11 @@
                 <mat-icon>visibility</mat-icon>
             </button>
 
-            <button (click)="editUser.emit(user)" mat-icon-button color="primary">
+            <button [disabled]="(userRole$ | async) !== 'ADMIN'" (click)="editUser.emit(user)" mat-icon-button color="primary">
                 <mat-icon>edit</mat-icon>
             </button>
 
-            <button (click)="deleteUser.emit(user.id)" mat-icon-button color="warn">
+            <button [disabled]="(userRole$ | async) !== 'ADMIN'" (click)="deleteUser.emit(user.id)" mat-icon-button color="warn">
                 <mat-icon>delete</mat-icon>
             </button>
         </td>

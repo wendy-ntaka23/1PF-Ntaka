@@ -7,6 +7,7 @@ import { CoursesComponent } from './pages/courses/courses.component';
 import { StudentsComponent } from './pages/students/students.component';
 import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
 import { DashboardComponent } from './dashboard.component';
+import { adminGuard } from '../core/guards/admin.guard';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { DashboardComponent } from './dashboard.component';
                     },
                     {
                         path:'users',
+                        canActivate:[adminGuard],
                         loadChildren:()=> import ('./pages/users/users.module').then((m) => m.UsersModule),
                     },
                     {

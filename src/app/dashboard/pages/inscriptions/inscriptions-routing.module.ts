@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 import { InscriptionsComponent } from './inscriptions.component';
-
 
 
 
